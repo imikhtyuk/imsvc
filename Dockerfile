@@ -10,11 +10,11 @@ ENV INPUT_DATA_URL=${INPUT_DATA_URL} \
 
 COPY app /app
 
+ADD requirements.txt /app
+
 RUN apk add apache2-mod-wsgi
 
-RUN pip install flask \
-    requests \
-    gunicorn
+RUN pip install -r /app/requirements.txt
 
 EXPOSE $PORT
 
