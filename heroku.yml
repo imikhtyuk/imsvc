@@ -3,4 +3,4 @@ build:
     web: Dockerfile
   config:
     INPUT_DATA_URL: "http://www.bom.gov.au/fwo/IDN60801/IDN60801.95765.json"
-    TEMP_FILTER_THRESHOLD: 20
+    TEMP_FILTER_THRESHOLD: 15
