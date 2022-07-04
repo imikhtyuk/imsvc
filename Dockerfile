@@ -1,11 +1,21 @@
-FROM python:3.8-alpine
+FROM python:3.9-alpine
 
 WORKDIR /app
 
-ADD . /app
+ARG INPUT_DATA_URL
+ARG FILTER_THRESHOLD
 
-RUN pip install -r requirements.txt
+ENV INPUT_DATA_URL=${INPUT_DATA_URL} \
+    FILTER_THRESHOLD=${FILTER_THRESHOLD}
 
-CMD ["python", "app.py"]
+COPY app /app
 
-EXPOSE 5000
+RUN apk add apache2-mod-wsgi 
+
+RUN pip install flask \
+    requests \
+    gunicorn 
+
+EXPOSE $PORT
+
+CMD ["sh", "-c", "gunicorn --workers 3 --bind 0.0.0.0:$PORT wsgi:app"]
