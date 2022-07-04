@@ -11,8 +11,7 @@ The returned JSON should has a response key with an array of stations. Each elem
 
 Service is using Sydney Olympic Park weather station: http://www.bom.gov.au/fwo/IDN60801/IDN60801.95765.json
 
-If there is any error with BoM, service returns a JSON response with HTTP status 503 service unavailable, and with a `error` key containing the string error from BoM. 
-For example:
+If there is any error with getting data from BoM, service returns a JSON response with HTTP status 503 service unavailable:
 ```
 {
   'error': 'Error Connecting to BOM.'
