@@ -1,9 +1,0 @@
-{
-    "environments": {
-      "staging": {
-        "scripts": {
-          "test": "nose test"
-        }
-      }
-    }
-  }
