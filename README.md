@@ -1,4 +1,4 @@
-# myservice
+# imsvc
 ## Overview
 Application interacts with bom.gov.au for its weather forecast information, filters only ‘apparent_t’ (in this case this
 represents the temperature) that is greater than 20 and sort it in ascending order.
